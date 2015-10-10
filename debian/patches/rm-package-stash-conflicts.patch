@@ -1,0 +1,34 @@
+Description: remove requirement for Package::Stash::Conflicts
+ This patch removes the requirements for Package::Stash::Conflicts
+ and friends, since these are handled by the package management
+ system.
+Origin: vendor
+Forwarded: not-needed
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2014-09-27
+
+--- a/t/00-compile.t
++++ b/t/00-compile.t
+@@ -4,18 +4,18 @@
+ 
+ # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.043
+ 
+-use Test::More  tests => 4 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
++use Test::More  tests => 2 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+ 
+ 
+ 
+ my @module_files = (
+     'Package/Stash.pm',
+-    'Package/Stash/Conflicts.pm',
++#    'Package/Stash/Conflicts.pm',
+     'Package/Stash/PP.pm'
+ );
+ 
+ my @scripts = (
+-    'bin/package-stash-conflicts'
++#    'bin/package-stash-conflicts'
+ );
+ 
+ # no fake home requested

@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+PACKAGE = $(shell dh_listpackages)
+TMP     = $(CURDIR)/debian/$(PACKAGE)
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	dh_auto_install
+	rm $(TMP)/usr/bin/package-stash-conflicts
+	rmdir --ignore-fail-on-non-empty --parents --verbose $(TMP)/usr/bin
+	rm $(TMP)/usr/share/man/man1/package-stash-conflicts.1p
+	rmdir --ignore-fail-on-non-empty --parents --verbose $(TMP)/usr/share/man/man1
+	rm $(TMP)/usr/share/perl5/Package/Stash/Conflicts.pm
+	rmdir --ignore-fail-on-non-empty --parents --verbose $(TMP)/usr/share/perl5/Package/Stash

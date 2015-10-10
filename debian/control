@@ -1,0 +1,35 @@
+Source: libpackage-stash-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Ansgar Burchardt <ansgar@debian.org>,
+           gregor herrmann <gregoa@debian.org>,
+           Jonathan Yu <jawnsy@cpan.org>,
+           Alessandro Ghedini <ghedo@debian.org>
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmodule-implementation-perl,
+                     libpackage-stash-xs-perl,
+                     libtest-fatal-perl,
+                     libtest-leaktrace-perl,
+                     libtest-requires-perl,
+                     perl
+Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libpackage-stash-perl.git
+Vcs-Git: git://anonscm.debian.org/pkg-perl/packages/libpackage-stash-perl.git
+Homepage: https://metacpan.org/release/Package-Stash
+Testsuite: autopkgtest-pkg-perl
+
+Package: libpackage-stash-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libmodule-implementation-perl
+Recommends: libpackage-stash-xs-perl
+Breaks: libclass-mop-perl (<< 1.09~),
+        libmoosex-method-signatures-perl (<< 0.37~),
+        libmoosex-roles-withoverloading-perl (<< 0.09~),
+        libnamespace-clean-perl (<< 0.19~)
+Description: module providing routines for manipulating stashes
+ Package::Stash is a Perl module that provides an interface for manipulating
+ stashes (Perl's symbol tables). These operations are occasionally necessary,
+ but often very messy and easy to get wrong.
